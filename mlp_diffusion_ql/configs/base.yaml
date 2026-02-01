@@ -1,0 +1,21 @@
+
+number_of_vehicles: 10 #周车生成数量
+port: 2000  # connection port
+town: 'Town06'  # which town to simulate Town05
+ego_vehicle_filter: 'vehicle.tesla.model3'  # 自车车型
+surrounding_vehicle_spawned_randomly: True # Whether surrounding vehicles are spawned randomly (True) or set manually (False)
+dt: 0.1  # time interval between two frames 0.1
+max_ego_spawn_times: 200  # maximum times to spawn ego vehicle
+perception_range: 50.0  # Maximum perception range (meters)
+max_nearby_vehicles: 5  # Maximum number of nearby vehicles to observe
+max_waypoints: 12  # maximum number of waypoints
+visualize_waypoints: True  # Whether to visualize waypoints (default: True)
+view_mode: 'top'  # 'top' for bird's-eye view, 'follow' for third-person view
+max_time_episode: 200  # maximum timesteps per episode 1000
+desired_speed: 8.1  # desired speed (m/s)
+seed: 0
+total_episodes: 2000000
+
+
+# Witing for use
+case_id: 4  # desired speed (m/s)
