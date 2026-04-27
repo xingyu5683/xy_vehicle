@@ -1,0 +1,2 @@
+/usr/bin/ar qc libplanr1_inference.a CMakeFiles/planr1_inference.dir/src/planr1_inference.cpp.o
+/usr/bin/ranlib libplanr1_inference.a

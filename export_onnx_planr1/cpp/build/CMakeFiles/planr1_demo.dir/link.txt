@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/planr1_demo.dir/src/main.cpp.o -o planr1_demo  -Wl,-rpath,/opt/onnxruntime/lib: libplanr1_inference.a /opt/onnxruntime/lib/libonnxruntime.so 
