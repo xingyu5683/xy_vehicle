@@ -1,0 +1,22 @@
+logs/*
+*/.vscode/*
+*/.git/*
+exp/*
+.vscode
+__pycache__/
+*.egg-info/
+ckpt/
+image*
+exp/
+cache/
+checkpoints/
+# 大文件
+*.hdf5
+*.h5
+# 日志和输出
+mlp_diffusion_ql/offline/log/
+visualization_output/
+training_log/
+# 图片文件（除了必要的）
+*.png
+!q_reward_validation/*.png

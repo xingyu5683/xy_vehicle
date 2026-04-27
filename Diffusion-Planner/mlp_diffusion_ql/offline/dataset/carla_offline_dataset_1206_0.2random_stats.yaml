@@ -1,0 +1,51 @@
+dataset_info:
+  data_file: /home/za/桌面/CODE/Carla_Change_Scenario_10.10/offline/carla_offline_dataset_1206_0.2random.hdf5
+  collection_time: '2025-12-06 16:02:51'
+  num_episodes: 200
+  total_steps: 199218
+  mean_steps_per_episode: 996.09
+data_dimensions:
+  obs_dim: 67
+  action_dim: 2
+  info_dim: 3
+  info_fields: ego_collision,ego_off_road,ego_min_dis
+reward_statistics:
+  per_step:
+    mean: 5.023229122161865
+    std: 3.3637921810150146
+    min: -495.5718078613281
+    max: 8.095685958862305
+    median: 6.382708549499512
+  per_episode:
+    mean: 5003.587836680012
+    std: 321.9280655257763
+    min: 1560.2989262787055
+    max: 5612.347419658323
+safety_statistics:
+  collision:
+    total_count: 1
+    rate: 5.0196267405555725e-06
+    rate_percentage: 0.0005019626740555572
+  off_road:
+    total_count: 0
+    rate: 0.0
+    rate_percentage: 0.0
+  min_distance:
+    mean: 0.0
+    std: 0.0
+    min: 0.0
+    max: 0.0
+    valid_samples: 0
+action_statistics:
+  longitudinal:
+    mean: 0.3629617691040039
+    std: 0.4281206429004669
+    range:
+    - -0.9999940991401672
+    - 0.9999887943267822
+  steer:
+    mean: -0.0005864228587597609
+    std: 0.3760885000228882
+    range:
+    - -0.9999051094055176
+    - 0.999934196472168

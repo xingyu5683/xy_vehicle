@@ -1,0 +1,101 @@
+dataset_info:
+  data_file: /home/za/桌面/CODE/Carla_Change_Scenario_10.10/carla_offline_dataset_1217_0.05random
+  collection_time: '2025-12-17 12:49:13'
+  num_episodes: 1000
+  total_steps: 215625
+  mean_steps_per_episode: 215.625
+environment_config:
+  config_file: /home/za/桌面/CODE/Carla_Change_Scenario_10.10/configs/base.yaml
+  parameters:
+    number_of_vehicles: 10
+    port: 2000
+    town: Town06
+    ego_vehicle_filter: vehicle.tesla.model3
+    surrounding_vehicle_spawned_randomly: true
+    dt: 0.1
+    max_ego_spawn_times: 200
+    perception_range: 50.0
+    max_nearby_vehicles: 5
+    max_waypoints: 12
+    visualize_waypoints: true
+    view_mode: top
+    max_time_episode: 250
+    desired_speed: 8.1
+    seed: 0
+    total_episodes: 2000000
+    case_id: 4
+reward_function_config:
+  function_name: carla_env._get_reward
+  description: Carla环境奖励函数（与gym_carla/envs/carla_env.py中的_get_reward一致）
+  components:
+    speed_reward:
+      description: Forward driving reward (within speed limit)
+      formula: 1.0 * speed if speed <= desired_speed else -5.0 * (speed - desired_speed)
+      speed_weight: 1.0
+      overspeed_penalty_weight: -5.0
+    lane_deviation_penalty:
+      description: Lane deviation penalty (penalize offset from lane center)
+      formula: -1.0 * lateral_offset
+      weight: -1.0
+    lateral_acceleration_penalty:
+      description: Smooth driving penalty (lateral acceleration penalty)
+      formula: -0.2 * abs(a_lat) * speed^2
+      weight: -0.2
+    steer_penalty:
+      description: Smooth driving penalty (steer penalty)
+      formula: 5 * (-steer^2)
+      weight: 5.0
+    collision_penalty:
+      description: Collision penalty
+      formula: -2000.0 if ego_collision else 0
+      penalty: -2000.0
+    off_road_penalty:
+      description: Off-road penalty
+      formula: -1000.0 if ego_off_road else 0
+      penalty: -1000.0
+  desired_speed: 8.1
+data_dimensions:
+  obs_dim: 67
+  action_dim: 2
+  info_dim: 3
+  info_fields: ego_collision,ego_off_road,ego_min_dis
+reward_statistics:
+  per_step:
+    mean: -16.145933151245117
+    std: 42.7392692565918
+    min: -1723.89306640625
+    max: 8.097230911254883
+    median: -2.3630449771881104
+  per_episode:
+    mean: -3481.4665586008205
+    std: 1819.4778151230407
+    min: -10278.387618820787
+    max: 68.23983293115012
+safety_statistics:
+  collision:
+    total_count: 122
+    rate: 0.0005657971014492753
+    rate_percentage: 0.056579710144927534
+  off_road:
+    total_count: 2
+    rate: 9.27536231884058e-06
+    rate_percentage: 0.0009275362318840579
+  min_distance:
+    mean: 0.0
+    std: 0.0
+    min: 0.0
+    max: 0.0
+    valid_samples: 0
+action_statistics:
+  longitudinal:
+    mean: 0.44525840878486633
+    std: 0.40523675084114075
+    range:
+    - -0.99996018409729
+    - 0.999889612197876
+  steer:
+    mean: 0.00014765455853193998
+    std: 0.21487514674663544
+    range:
+    - -0.9998891949653625
+    - 0.9999240636825562
